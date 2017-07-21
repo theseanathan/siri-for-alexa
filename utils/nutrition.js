@@ -50,9 +50,9 @@ function nutrition(weight, age, sex, height, activityLevel) {
     carbs = carbsCals / CARBS_CALS_TO_GRAMS;
 
     var userMacros = {
-        "totalCalories": Math.round(tdee),
+        "calories": Math.round(tdee),
         "protein": Math.round(protein),
-        "fat": Math.round(fat),
+        "total_fat": Math.round(fat),
         "carbs": Math.round(carbs)
     }
 
