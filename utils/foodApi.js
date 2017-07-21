@@ -2,7 +2,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var APPLICATION_ID = "d58add05";
 var APPLICATION_KEY = "e0723d8ec13aa3b88440fb1f4bc7a365";
 
-console.log(nutrientsByFood("turkey sandwich"));
+console.log(nutrientsByFood(process.argv[2]));
 
 function nutrientsByFood(foodName)
 {
@@ -21,6 +21,7 @@ function nutrientsByFood(foodName)
     var response = JSON.parse(xhttp.responseText);
     var foods="foods";
     return {
+	"calories": response[foods][0]["nf_calories"],
 	"total_fat": response[foods][0]["nf_total_fat"],
 	    "sat_fat": response[foods][0]["nf_saturated_fat"],
 	    "cholesterol": response[foods][0]["nf_cholesterol"],
