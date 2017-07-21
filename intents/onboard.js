@@ -1,6 +1,6 @@
 
 function onboard(req, resp) {
-    dialog = req.getDialog();i
+    dialog = req.getDialog();
     if (dialog.isStarted || dialog.isInProgress()) {
         dialog.handleDialogDelegation();
     }
