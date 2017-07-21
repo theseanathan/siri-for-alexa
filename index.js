@@ -38,3 +38,5 @@ fs.writeFile('output/intents.json', app.schema(), function(err) {
 })
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
+//Contact GitHub API Training Shop Blog About
+//© 2017 GitHub, Inc. Terms Privacy Security Status Help
