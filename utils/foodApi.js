@@ -71,10 +71,7 @@ function nutrientsByFood(foodName)
     }
 }
 
-<<<<<<< HEAD
-=======
 function getValue(response, key)
 {
     return !response["foods"][0][key] ? 0 : response["foods"][0][key];
->>>>>>> e5a235d3a9569456d0c3e338fcd70cb400095558
 }
