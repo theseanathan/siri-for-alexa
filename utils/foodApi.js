@@ -19,18 +19,28 @@ function nutrientsByFood(foodName)
 
     xhttp.send(JSON.stringify(body));
     var response = JSON.parse(xhttp.responseText);
-    var foods="foods";
-    return {
-	"calories": response[foods][0]["nf_calories"],
-	"total_fat": response[foods][0]["nf_total_fat"],
-	    "sat_fat": response[foods][0]["nf_saturated_fat"],
-	    "cholesterol": response[foods][0]["nf_cholesterol"],
-	    "sodium": response[foods][0]["nf_sodium"],
-	    "carbs": response[foods][0]["nf_total_carbohydrate"],
-	    "fiber": response[foods][0]["nf_dietary_fiber"],
-	    "sugar": response[foods][0]["nf_sugars"],
-	    "protein": response[foods][0]["nf_protein"],
-	    "potassium": response[foods][0]["nf_potassium"]
+
+    if (!response.hasOwnProperty("foods"))
+    {
+	return {"name":"FAIL"}
     }
 
+    return {
+	"name": getValue(response,"food_name"),
+	    "calories": getValue(response,"nf_calories"),
+	    "total_fat": getValue(response,"nf_total_fat"),
+	    "sat_fat": getValue(response,"nf_saturated_fat"),
+	    "cholesterol": getValue(response,"nf_cholesterol"),
+	    "sodium": getValue(response,"nf_sodium"),
+	    "carbs": getValue(response,"nf_total_carbohydrate"),
+	    "fiber": getValue(response,"nf_dietary_fiber"),
+	    "sugar": getValue(response,"nf_sugars"),
+	    "protein": getValue(response,"nf_protein"),
+	    "potassium": getValue(response,"nf_potassium")
+    }
+}
+
+function getValue(response, key)
+{
+    return !response["foods"][0][key] ? 0 : response["foods"][0][key];
 }
