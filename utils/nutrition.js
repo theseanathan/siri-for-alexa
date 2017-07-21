@@ -80,3 +80,7 @@ console.log(JSON.stringify(nutrition(180, 20, "male", 70, 3), null, 2));
 //Protein: .825 grams/lb
 //Fat: .25 of total caloric intake.
 //Carbs: TDEE - proteinCals - fatCals
+
+module.exports = {
+    getMacros = nutrition
+}
