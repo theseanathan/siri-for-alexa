@@ -30,7 +30,6 @@ app.error = function(e, request, response) {
   response.say("I captured the exception! It was: " + e.message);
 };
 
-<<<<<<< Updated upstream
 fs.writeFile('output/intents.json', app.schema(), function(err) {
     if (err) {
         console.log(err)
@@ -38,7 +37,5 @@ fs.writeFile('output/intents.json', app.schema(), function(err) {
 })
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
-=======
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
->>>>>>> Stashed changes
+//Contact GitHub API Training Shop Blog About
+//© 2017 GitHub, Inc. Terms Privacy Security Status Help
