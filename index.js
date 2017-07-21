@@ -1,6 +1,7 @@
 var alexa = require('alexa-app');
 var app = new alexa.app('my_macros');
 var onboard = require('./intents/onboard.js');
+var flashbriefing = require('./intents/flashbriefing.js');
 var fs = require('fs');
 
 // Allow this module to be reloaded by hotswap when changed
