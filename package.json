@@ -1,0 +1,30 @@
+{
+  "name": "siri-for-alexa",
+  "version": "1.0.0",
+  "description": "Amazon Global Hackathon - Macro Counter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theseanathan/siri-for-alexa.git"
+  },
+  "keywords": [
+    "Alexa",
+    "alexa-app",
+    "alexa-app-server",
+    "macros",
+    "nutrition"
+  ],
+  "author": "Siri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theseanathan/siri-for-alexa/issues"
+  },
+  "homepage": "https://github.com/theseanathan/siri-for-alexa#readme",
+  "dependencies": {
+    "alexa-app": "^4.0.1",
+    "alexa-app-server": "^3.0.1"
+  }
+}
