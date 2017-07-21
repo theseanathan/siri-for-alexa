@@ -1,10 +1,11 @@
 var alexa = require('alexa-app');
 var app = new alexa.app('my_macros');
-
+var onboard = require('./intents/onboard.js');
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 module.exports = app;
 
+onboard.init(app);
 
 
 function initializeGameState(session) {
@@ -27,7 +28,7 @@ app.launch(function(req,res) {
   var gameState = initializeGameState(req.getSession());
   req.getSession().set("gameState", gameState);
   var moveState = alexaMove(req.getSession(), gameState);
-  
+
   var chips = gameState.startingChips;
   console.log(chips + " chips to start");
 
@@ -36,7 +37,7 @@ app.launch(function(req,res) {
                         "leave the game, say exit.");
 });
 
-app.intent('BriefingIntent', 
+app.intent('BriefingIntent',
     {
         "slots": {},
         "utterances": [
@@ -45,10 +46,10 @@ app.intent('BriefingIntent',
     },
     function (req, res) {
       // report nutrition status
-    }    
+    }
 );
 
-app.intent('HelpIntent', 
+app.intent('HelpIntent',
     {
         "slots": {},
         "utterances": [
@@ -57,8 +58,8 @@ app.intent('HelpIntent',
     },
     function (request, response) {
 	    response.say("TODO - add help message");
-      response.shouldEndSession(false);  
-    }    
+      response.shouldEndSession(false);
+    }
 );
 
 app.intent('logFood', {
@@ -86,7 +87,7 @@ app.sessionEnded(stopSession);
 function stopSession(request, response) {
 
   response.say("Thanks for playing.  You won " + playerWins + " games and I won " + alexaWins + " games.");
-  response.shouldEndSession(true);  
+  response.shouldEndSession(true);
 }
 
 
@@ -95,5 +96,7 @@ app.error = function(e, request, response) {
   response.say("I captured the exception! It was: " + e.message);
 };
 
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+console.log(app.schema());
+
+//Contact GitHub API Training Shop Blog About
+//© 2017 GitHub, Inc. Terms Privacy Security Status Help
