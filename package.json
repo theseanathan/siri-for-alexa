@@ -27,10 +27,8 @@
   "dependencies": {
     "alexa-app": "^4.0.1",
     "alexa-app-server": "^3.0.1",
-<<<<<<< Updated upstream
+    "aws-sdk": "^2.88.0",
     "xmlhttprequest": "^1.8.0"
-=======
     "nutritionix": "^0.6.1"
->>>>>>> Stashed changes
   }
 }
