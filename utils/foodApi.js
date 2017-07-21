@@ -2,7 +2,39 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var APPLICATION_ID = "d58add05";
 var APPLICATION_KEY = "e0723d8ec13aa3b88440fb1f4bc7a365";
 
-console.log(nutrientsByFood(process.argv[2]));
+var foods = process.argv.slice(2);
+
+console.log(batchNutrients(foods));
+
+function batchNutrients(foods)
+{
+    var nutrientTotals = {
+	"calories": 0,
+	"total_fat": 0,
+	"sat_fat": 0,
+	"cholesterol": 0,
+	"sodium": 0,
+	"carbs": 0,
+	"fiber": 0,
+	"sugar": 0,
+	"protein": 0,
+	"potassium": 0
+    }
+
+    for (var i=0; i<foods.length; i++)
+	{
+	    console.log(foods[i]);
+	    nutrientUpdate = nutrientsByFood(foods[i]);
+	    if (nutrientUpdate["name"] == "FAIL") continue;
+
+	    for (var key in nutrientUpdate)
+		{
+		    nutrientTotals[key] += nutrientUpdate[key];
+		}
+	}
+    return nutrientTotals;
+
+}
 
 function nutrientsByFood(foodName)
 {
@@ -26,7 +58,6 @@ function nutrientsByFood(foodName)
     }
 
     return {
-	"name": getValue(response,"food_name"),
 	    "calories": getValue(response,"nf_calories"),
 	    "total_fat": getValue(response,"nf_total_fat"),
 	    "sat_fat": getValue(response,"nf_saturated_fat"),
