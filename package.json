@@ -28,7 +28,7 @@
     "alexa-app": "^4.0.1",
     "alexa-app-server": "^3.0.1",
     "aws-sdk": "^2.88.0",
-    "xmlhttprequest": "^1.8.0",
-    "nutritionix": "^0.6.1"
+    "nutritionix": "^0.6.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }

@@ -1,22 +1,63 @@
 var alexa = require('./alexa-app');
 var app = new alexa.app('my_macros');
-var onboard = require('./intents/onboard.js');
 var flashbriefing = require('./intents/flashbriefing.js');
+var addfood = require('./intents/addfood.js');
 var fs = require('fs');
 
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 module.exports = app;
 
-onboard.init(app);
+// function onboard(req, resp) {
+//     console.log("IN ONBOARDINGNJSDIFBNJDSKBFJDKSBFHJDSHJFBHDJSKFBHJKDSFHJKDSHJFKB\n")
+//     dialog = req.getDialog();
+//     console.log(dialog);
+//     if (dialog.isStarted() || dialog.isInProgress()) {
+//         dialog.handleDialogDelegation(req, resp);
+//         console.log("6");
+//         resp.send();
+//     }
+//     else if(dialog.isCompleted()) {
+//         console.log("9");
+//         userInfo = {};
+//         if ('Weight' in req.slots) {
+//             userInfo['Weight'] = req.slots['Weight'].value;
+//         }
+//         if ('Age' in req.slots) {
+//             userInfo['Age'] = req.slots['Age'].value;
+//         }
+//         if ('Sex' in req.slots) {
+//             userInfo['Sex'] = req.slots['Sex'].value;
+//         }
+//         if ('Feet' in req.slots && 'Inches' in req.slots) {
+//             userInfo['Height'] = parseInt(req.slots['Feet'].value) * 12 + parseInt(req.slots['Inches'].value);
+//         }
+//         console.log("22");
+//         resp.say("Thank you! Go ahead and log your food for the day and we'll keep track of your daily nutritional value").send();
+//         resp.session.set("UserInfo", userInfo);
+//         console.log("25");
+//         resp.shouldEndSession(false, "").send();
+//         resp.send();
+//         console.log("37");
+//     }
+//     else {
+
+//     	// resp.shouldEndSession(false);
+//         dialog.handleDialogDelegation(req, resp);
+//         console.log("6");
+//         resp.send();
+//     }
+//     req.send();
+// }
+
 flashbriefing.init(app);
+addfood.init(app);
 app.launch(function(req,res) {
 
-	res.say("WelcomeMessage");
-	res.shouldEndSession (false, "To hear the rules, say help. To get the current game state, say status. To " +
-                        "leave the game, say exit.");
+	res.say("WelcomeMessage, go ahead and say today i ate item").send();
 });
 
+// app.intent('OnboardIntent', null, onboard);
 app.intent('AMAZON.StopIntent', stopSession);
 app.intent('AMAZON.CancelIntent', stopSession);
 app.sessionEnded(stopSession);
@@ -31,12 +72,11 @@ app.error = function(e, request, response) {
   response.say("I captured the exception! It was: " + e.message);
 };
 
-fs.writeFile('output/intents.json', app.schema(), function(err) {
-    if (err) {
-        console.log(err)
-    }
-})
+exports.handler = app.lambda();
+
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
+
+

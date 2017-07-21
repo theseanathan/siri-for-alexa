@@ -11,7 +11,7 @@ function addfood(req, resp) {
     nutritionInfo = foodapi.nutrientsByFood(foodName);
     calories = nutrionalInfo;
     resp.say("Added " + foodName + "to your list. " + foodName + " has " + calories + " calories". )
-    resp.shouldEndSession(false);
+    resp.shouldEndSession(false).send();
 }
 
 
