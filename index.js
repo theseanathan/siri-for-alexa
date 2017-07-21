@@ -9,7 +9,7 @@ module.change_code = 1;
 module.exports = app;
 
 onboard.init(app);
-
+flashbriefing.init(app);
 
 function initializeGameState(session) {
 
