@@ -26,6 +26,7 @@
   "homepage": "https://github.com/theseanathan/siri-for-alexa#readme",
   "dependencies": {
     "alexa-app": "^4.0.1",
-    "alexa-app-server": "^3.0.1"
+    "alexa-app-server": "^3.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
