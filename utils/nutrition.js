@@ -1,4 +1,4 @@
-var PROTEIN_PER_KG = .825;
+var PROTEIN_PER_LB = .825;
 var PROTEIN_GRAMS_TO_CALORIES = 4;
 var FAT_CALS_PER_TDEE = .25;
 var FAT_CALS_TO_GRAMS = 9;
@@ -42,7 +42,7 @@ function nutrition(weight, age, sex, height, activityLevel) {
             break;
     }
 
-    protein = weightInKg * PROTEIN_PER_KG;
+    protein = weight * PROTEIN_PER_LB;
     proteinCals = protein * PROTEIN_GRAMS_TO_CALORIES; 
     fatCals = tdee * FAT_CALS_PER_TDEE;
     fat = fatCals / FAT_CALS_TO_GRAMS;
