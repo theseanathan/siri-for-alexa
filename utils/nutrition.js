@@ -19,9 +19,9 @@ function nutrition(weight, age, sex, height, activityLevel) {
     heightInCm = inToCm(height);
 
     if(sex === "male") {
-        ree = (10 * weightInKg) + (6.25 x heightInCm) - (5 * age) + 5;
+        ree = (10 * weightInKg) + (6.25 * heightInCm) - (5 * age) + 5;
     } else {
-        ree = (10 * weightInKg) + (6.25 x heightInCm) - (5 * age) - 161;
+        ree = (10 * weightInKg) + (6.25 * heightInCm) - (5 * age) - 161;
     }
 
     switch(activityLevel) {
@@ -67,6 +67,7 @@ function inToCm(height) {
     return height * 2.54;
 }
 
+console.log(JSON.stringify(nutrition(180, 20, "male", 70, 3), null, 2));
 //10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) + 5 = REE
 
 //10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) – 161 = REE
